@@ -1,0 +1,1 @@
+Place approved brand assets in this folder. Do not replace the temporary artwork with unrelated stock imagery. Use descriptive filenames and ensure usage rights/permissions are confirmed.

@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+:root{--gold:#E2A712;--ink:#000000;--paper:#FFFFFF;--muted:#686868;--line:#e9e7e1}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:'Montserrat',sans-serif}h1,h2,h3,h4,.font-display{font-family:'Poppins',sans-serif;letter-spacing:-.04em}a{transition:color .2s ease}button,input,textarea,select{font:inherit}::selection{background:var(--gold);color:#000}.container-shell{width:min(1180px,calc(100% - 48px));margin-inline:auto}.eyebrow{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.18em}.section-pad{padding-block:96px}.gold-rule{height:3px;width:48px;background:var(--gold)}.button-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:#000;padding:14px 20px;font-size:.82rem;font-weight:700;border:1px solid var(--gold);transition:transform .2s,background .2s}.button-primary:hover{background:#f0bd32;transform:translateY(-2px)}.button-secondary{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;font-size:.82rem;font-weight:700;border:1px solid #bdbdbd;transition:border-color .2s,transform .2s}.button-secondary:hover{border-color:#000;transform:translateY(-2px)}.muted{color:var(--muted)}.visual-placeholder{background:linear-gradient(135deg,#f6f3e9,#e9e4d7);position:relative;overflow:hidden}.visual-placeholder:before{content:'';position:absolute;width:62%;aspect-ratio:1;border:1px solid rgba(0,0,0,.15);border-radius:50%;right:-9%;top:-24%}.visual-placeholder:after{content:'';position:absolute;width:38%;aspect-ratio:1;background:var(--gold);border-radius:50%;right:15%;bottom:-22%;opacity:.88}.focus-ring:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.hero-orbit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Each image rotates around its own centre,
+   while its orbit wrapper rotates around the reference point. */
+.hero-orbit-image {
+  position: absolute;
+  display: block;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 12px 28px rgb(0 0 0 / 18%);
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Top-right image */
+.hero-orbit-image-1 {
+  top: -2.5rem;
+  right: -3.5rem;
+  width: 7rem;
+  animation: orbit-one 7s ease-in-out infinite;
+}
+
+/* Bottom-left image */
+.hero-orbit-image-2 {
+  bottom: 6rem;
+  left: -3.5rem;
+  width: 7rem;
+  animation: orbit-two 8s ease-in-out infinite;
+}
+
+/* Upper-left image */
+.hero-orbit-image-3 {
+  top: 5rem;
+  left: -5rem;
+  width: 6rem;
+  animation: orbit-three 6s ease-in-out infinite;
+}
+
+@keyframes orbit-one {
+  0%, 100% {
+    transform: translate(0, 0) rotate(-6deg);
+  }
+  50% {
+    transform: translate(-12px, 14px) rotate(2deg);
+  }
+}
+
+@keyframes orbit-two {
+  0%, 100% {
+    transform: translate(0, 0) rotate(8deg);
+  }
+  50% {
+    transform: translate(14px, -12px) rotate(-2deg);
+  }
+}
+
+@keyframes orbit-three {
+  0%, 100% {
+    transform: translate(0, 0) rotate(-4deg);
+  }
+  50% {
+    transform: translate(10px, 12px) rotate(5deg);
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-orbit-image {
+    animation: none;
+  }
+}@media(max-width:640px){.container-shell{width:min(100% - 32px,1180px)}.section-pad{padding-block:64px}}
